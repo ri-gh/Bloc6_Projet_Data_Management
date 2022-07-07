@@ -1,4 +1,4 @@
-# Bloc_6_Projet_Data_Management
+# Bloc_6_Project_Data_Management
 
 Presentation of a data project with slides ( DataViz, ML , ...)
 
