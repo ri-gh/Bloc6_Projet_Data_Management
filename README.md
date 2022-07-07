@@ -1,5 +1,7 @@
 # Bloc_6_Project_Data_Management
 
+My video link : https://share.vidyard.com/watch/2reBvsLXFhbPEkEhRySx3Q?
+
 Presentation of a data project with slides ( DataViz, ML , ...)
 
 Among all industries, insurance domain has the largest use of analytics & data science methods. This data set would provide you enough taste of working on data sets from insurance companies, what challenges are faced, what strategies are used, which variables influence the outcome etc. This is a classification problem. The data has 615 rows and 13 columns.
