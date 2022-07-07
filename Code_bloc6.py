@@ -32,9 +32,10 @@ print("Percentage of missing values: ")
 a =df.isnull().sum()/len(df)*100
 a.sort_values(ascending=False)
 
-
+#drop rows with empty data
 df = df.dropna()
 
+#we replace +3 by 3 and change type to 'int'
 df['Dependents'] = df['Dependents'].replace('3+', '3').astype('int')
 
 
@@ -45,10 +46,12 @@ print(matrix)
 sns.heatmap(matrix, annot=True) #show correlation matrix
 plt.show()
 
+#show countplot of Loan status (Y/N)
 sns.countplot( x = 'Loan_Status',data=df)
 print ('There is {} % of loan accepted'.format(np.round(len(df[df['Loan_Status'] == 'Y'])/len(df['Loan_Status'])*100, 2)))
 print ('There is {} % of loan rejected'.format(np.round(len(df[df['Loan_Status'] == 'N'])/len(df['Loan_Status'])*100 , 2)))
 
+#show pie chart of Loan status per gender
 
 pie_chart_data = df.groupby('Loan_Status')['Gender'].value_counts()
 pie_chart_data
@@ -66,6 +69,8 @@ plt.title('Loan status per "gender"', loc ='left', color ='black')
 plt.legend(bbox_to_anchor=(1.1, 1.05))
 plt.show()
 
+
+#change type from 'object' to 'str'
 
 df['Gender'] = df['Gender'].astype('str')
 df['Married'] = df['Married'].astype('str')
@@ -93,6 +98,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 
 
+#make lists of numerical and categorical features position
+#then normalize or encode them
 
 numeric_features = [2, 5, 6, 7, 8] 
 
@@ -110,13 +117,16 @@ feature_encoder = ColumnTransformer(
         ('cat', categorical_transformer, categorical_features),    
         ('num', numeric_transformer, numeric_features)])
     
+
 X_train = feature_encoder.fit_transform(X_train)
 
 #our model:
 classifier = LogisticRegression()
 
+#we train our model
 classifier.fit(X_train, y_train) 
 
+#model prediction
 y_train_pred = classifier.predict(X_train)
 
 
@@ -166,6 +176,8 @@ all_column_names = np.append(categorical_column_names, numerical_column_names)
 print("All column names are: ",all_column_names)
 print()
 
+
+#check features importance:
 
 feature_importance = pd.DataFrame({
     "feature_names": all_column_names,
