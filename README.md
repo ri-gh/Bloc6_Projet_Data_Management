@@ -1,6 +1,5 @@
 # Bloc_6_Project_Data_Management
 
-My video link : https://share.vidyard.com/watch/2reBvsLXFhbPEkEhRySx3Q?
 
 Presentation of a data project with slides ( DataViz, ML , ...)
 
